@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中材科技(成都)有限公司 - 氢能储运装备技术引领者</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --secondary: #0d47a1;
+            --accent: #00c853;
+            --dark: #1a237e;
+            --light: #f5f7fa;
+            --text: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏样式 */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 283px;
+            height: 52px;
+            transition: var(--transition);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 0;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        /* Banner 样式 */
+        .banner {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+
+        .banner-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner-slide.active {
+            opacity: 1;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .banner-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .banner-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 通用部分样式 */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 关于我们样式 - 修改了顶部和底部高度 */
+        #about {
+            padding: 20px 0; /* 从80px减少到20px，顶部和底部各减少60px */
+        }
+
+        .about {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 40px; /* 从60px减少到40px，顶部和底部各减少20px */
+            margin-bottom: 20px; /* 从80px减少到20px，底部减少60px */
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 产品展示样式 */
+        .products {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .products::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* 企业文化样式 */
+        .culture {
+            background: var(--white);
+        }
+
+        .culture-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* 营销网络样式 */
+        .network {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .network::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .network-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 荣誉资质样式 */
+        .certifications {
+            background: var(--light);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .cert-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .cert-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* 应用场景样式 */
+        .applications {
+            background: var(--white);
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .app-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .app-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .app-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .app-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .app-item:hover .app-image img {
+            transform: scale(1.1);
+        }
+
+        .app-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .app-info h3 {
+            font-size: 16px;
+            color: var(--dark);
+        }
+
+        /* 联系方式样式 */
+        .contact {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .contact-text p {
+            color: var(--text-light);
+        }
+
+        .social-contact {
+            margin-top: 30px;
+        }
+
+        .social-contact h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .social-links-contact {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links-contact a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links-contact a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cert-grid, .app-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 40px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .banner-content h1 {
+                font-size: 36px;
+            }
+            
+            .banner-content p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .about {
+                padding: 30px 20px; /* 移动端也相应减少 */
+            }
+            
+            .product-grid, .cert-grid, .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .banner {
+                height: 500px;
+            }
+            
+            .banner-content h1 {
+                font-size: 28px;
+            }
+            
+            .banner-content p {
+                font-size: 16px;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header id="header">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="#home"><img src="http://www.sinoma-cd.com/Public/Home/zhongcai/img/logo1.png" alt="中材科技(成都)有限公司"></a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">网站首页</a></li>
+                    <li><a href="#about">企业简介</a></li>
+                    <li><a href="#products">产品展示</a></li>
+                    <li><a href="#culture">企业文化</a></li>
+                    <li><a href="#network">营销网络</a></li>
+                    <li><a href="#certifications">荣誉资质</a></li>
+                    <li><a href="#applications">应用场景</a></li>
+                    <li><a href="#contact">联系方式</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner区域 -->
+    <section class="banner" id="home">
+        <div class="banner-slide active" style="background-image: url('http://www.sinoma-cd.com/uploads/abc1/20211202/61a81fc3a22f6.jpg');"></div>
+        <div class="banner-slide" style="background-image: url('http://www.sinoma-cd.com/uploads/abc1/20190325/5c98991cd3ef8.jpg');"></div>
+        <div class="banner-slide" style="background-image: url('http://www.sinoma-cd.com/uploads/abc1/20190325/5c9899044ff2c.jpg');"></div>
+        <div class="banner-overlay">
+            <div class="banner-content">
+                <h1>中材科技(成都)有限公司</h1>
+                <p>氢能储运装备技术引领者，致力于推动绿色能源发展</p>
+                <a href="#about" class="btn">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业简介 -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>企业简介</h2>
+                <p>了解中材科技(成都)有限公司的发展历程与企业实力</p>
+            </div>
+            <div class="about">
+                <div class="about-content">
+                    <div class="about-text fade-in">
+                        <h3>关于中材科技(成都)有限公司</h3>
+                        <p>中材科技(成都)有限公司是中国建材集团有限公司成员单位，中国建材集团有限公司是国务院国资委直属管理的大型中央企业，连续13年荣登《财富》世界500强企业榜单。</p>
+                        <p>公司是国家高新技术企业、国家专精特新小巨人企业、国家绿色工厂、国家知识产权优势企业，主要以燃料电池氢气瓶、储氢系统、无人机氢气瓶、大口径复合材料运气单元、CNG气瓶为主营业务，产品广泛应用于汽车制造、气体储运、无人机及特种装备等多个领域。</p>
+                        <p>公司始终践行"创新、绩效、和谐、责任"的企业核心价值观，坚持党建和经营"一本账"，抓紧抓实"三基建设"，履行中央企业应担负的政治责任、经济责任和社会责任，切实把党组织的政治优势转化为企业创新发展的新优势，坚持不懈推动行业的创新发展，以科技研发引领氢能储运装备技术发展，为助力碳达峰碳中和目标实现而不懈奋斗!</p>
+                    </div>
+                    <div class="about-image fade-in">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20220609/62a190dc5235a.jpg" alt="中材科技企业形象">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>产品展示</h2>
+                <p>探索我们的创新产品系列</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20220610/62a2e01901ad7.jpg" alt="燃料电池汽车储氢系统">
+                    </div>
+                    <div class="product-info">
+                        <h3>燃料电池汽车储氢系统</h3>
+                        <p>产品安全性提高，提供定制化解决方案，满足不同客户需求。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20220617/62ac0d5761d23.jpg" alt="燃料电池氢气瓶（三型）">
+                    </div>
+                    <div class="product-info">
+                        <h3>燃料电池氢气瓶（三型）</h3>
+                        <p>储气量大轻、重量。组合样式灵活，可根据客户要求进行差异化设计。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20220610/62a2d4da118a2.jpg" alt="燃料电池氢气瓶（四型）">
+                    </div>
+                    <div class="product-info">
+                        <h3>燃料电池氢气瓶（四型）</h3>
+                        <p>缠绕层防疲劳开裂结构设计，更安全。防电化学腐蚀的涂层和绝缘结构。多管组装固定技术。高强度化缠绕层设计，产品重量轻，运气量更大。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20220610/62a2df30b1f2a.jpg" alt="管束式储运装备">
+                    </div>
+                    <div class="product-info">
+                        <h3>管束式储运装备</h3>
+                        <p>储气量大轻、重量。组合样式灵活，可根据客户要求进行差异化设计。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20220610/62a2df30b1f2a.jpg" alt="碳纤维全缠绕钢内胆气瓶(三型)">
+                    </div>
+                    <div class="product-info">
+                        <h3>碳纤维全缠绕钢内胆气瓶(三型)</h3>
+                        <p>储气量大轻、重量。组合样式灵活，可根据客户要求进行差异化设计。</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20170901/59a918c918650.jpg" alt="管束式储运装备">
+                    </div>
+                    <div class="product-info">
+                        <h3>管束式储运装备</h3>
+                        <p>缠绕层防疲劳开裂结构设计，更安全。防电化学腐蚀的涂层和绝缘结构。多管组装固定技术。高强度化缠绕层设计，产品重量轻，运气量更大。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业文化 -->
+    <section class="culture" id="culture">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>企业文化</h2>
+                <p>我们的价值观与使命</p>
+            </div>
+            <div class="culture-content fade-in">
+                <p>公司一路走来，创造了一部不忘初心、艰苦创业、拼搏奋斗的辉煌历史。深厚的文化底蕴以及高度的国企责任，铸就了公司独具特色的文化体系。这套文化体系激励着中材人一路攻坚克难、自立自强，为国家乃至全世界源源不断地提供先进的产品和专业的服务，也使我们从行业中默默无闻的一员蜕变为引领行业的头部企业。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 营销网络 -->
+    <section class="network" id="network">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>营销网络</h2>
+                <p>全球布局，服务世界</p>
+            </div>
+            <div class="network-content fade-in">
+                <p>在品牌国际化战略指导之下，中材科技（成都）有限公司销售网络覆盖全球三十多个国家和地区，并成为多家国际知名汽车制造企业的战略合作伙伴，为"中国质造"增添了浓墨重彩的一笔。凭借自主创新技术、先进装备和规范的管理体系，赢得了国内外市场的广泛认可和赞誉。形成了立足中国，辐射全球的国际化版图，开创了国际化发展的新格局!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 荣誉资质 -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>荣誉资质</h2>
+                <p>我们的认证与荣誉</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-item fade-in">
+                    <div class="cert-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20240429/662f1395ec344.png" alt="特种设备制造许可证">
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20240429/662f6217c062a.png" alt="ISO9001证书中文">
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20240429/662f627bc7cae.png" alt="ISO9001证书英文">
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20240429/662f62e48744a.png" alt="IATF16949证书中文">
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20240429/662f65607b568.png" alt="IATF45001证书英文">
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20240429/662f632fd2215.png" alt="IATF16949证书英文">
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20240429/662f64ca833dd.png" alt="IATF14001证书英文">
+                    </div>
+                </div>
+                <div class="cert-item fade-in">
+                    <div class="cert-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20240429/662f651b3d5e1.png" alt="IATF45001证书中文">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用场景 -->
+    <section class="applications" id="applications">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>应用场景</h2>
+                <p>我们的生产设备与技术</p>
+            </div>
+            <div class="app-grid">
+                <div class="app-item fade-in">
+                    <div class="app-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20211122/619b559b10876.png" alt="旋压收口机">
+                    </div>
+                    <div class="app-info">
+                        <h3>旋压收口机</h3>
+                    </div>
+                </div>
+                <div class="app-item fade-in">
+                    <div class="app-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20200323/5e7880b70186a.png" alt="自动化缠绕线">
+                    </div>
+                    <div class="app-info">
+                        <h3>自动化缠绕线</h3>
+                    </div>
+                </div>
+                <div class="app-item fade-in">
+                    <div class="app-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20200323/5e788137ca92c.png" alt="缠绕机">
+                    </div>
+                    <div class="app-info">
+                        <h3>缠绕机</h3>
+                    </div>
+                </div>
+                <div class="app-item fade-in">
+                    <div class="app-image">
+                        <img src="http://www.sinoma-cd.com/uploads/img1/20200323/5e78810abcec2.png" alt="板式拉伸机">
+                    </div>
+                    <div class="app-info">
+                        <h3>板式拉伸机</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>联系方式</h2>
+                <p>欢迎与我们联系，我们将竭诚为您服务</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>联系信息</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>电话</h4>
+                                <p>+86（028）67778982</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>邮箱</h4>
+                                <p>sales@sinomatech.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>地址</h4>
+                                <p>成都市新津区普兴街道（天府智能制造产业园）平塘东路136号</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>网址</h4>
+                                <p>www.sinoma-cd.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-contact">
+                        <h4>关注我们</h4>
+                        <div class="social-links-contact">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-weibo"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3>发送消息</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">您的姓名</label>
+                            <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">电子邮箱</label>
+                            <input type="email" id="email" class="form-control" placeholder="请输入您的电子邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">联系电话</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="请输入您的联系电话">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题</label>
+                            <input type="text" id="subject" class="form-control" placeholder="请输入邮件主题" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容</label>
+                            <textarea id="message" class="form-control" placeholder="请输入您的留言内容" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <p>中材科技(成都)有限公司是中国建材集团有限公司成员单位，致力于氢能储运装备技术的研发与制造。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>产品中心</h3>
+                    <a href="#products">燃料电池汽车储氢系统</a>
+                    <a href="#products">燃料电池氢气瓶（三型）</a>
+                    <a href="#products">燃料电池氢气瓶（四型）</a>
+                    <a href="#products">管束式储运装备</a>
+                </div>
+                <div class="footer-column">
+                    <h3>联系方式</h3>
+                    <p><i class="fas fa-phone"></i> +86（028）67778982</p>
+                    <p><i class="fas fa-envelope"></i> sales@sinomatech.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 成都市新津区普兴街道（天府智能制造产业园）平塘东路136号</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <a href="#home">网站首页</a>
+                    <a href="#about">企业简介</a>
+                    <a href="#products">产品展示</a>
+                    <a href="#certifications">荣誉资质</a>
+                    <a href="#contact">联系方式</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 中材科技(成都)有限公司 版权所有 | 网址：www.sinoma-cd.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // 移动端菜单切换
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // 点击菜单项后关闭移动菜单
+        document.querySelectorAll('.nav-menu a').forEach(item => {
+            item.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Banner轮播
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        // 每5秒切换一次Banner
+        setInterval(nextSlide, 5000);
+
+        // 滚动动画
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkScroll() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // 初始检查
+        checkScroll();
+        
+        // 滚动时检查
+        window.addEventListener('scroll', checkScroll);
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 表单提交处理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感谢您的留言！我们会尽快与您联系。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
